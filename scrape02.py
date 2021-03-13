@@ -39,22 +39,22 @@ def transform(soup):
     return joblist
 
 def get_pages():
-    for i in range(0, 60, 10):
+    for i in range(0, 20, 10):
         print(f'Get {i} pages')
         get_data = extract(job, location, i)
         jobs = transform(get_data)
     return
 
+get_pages()
+# def to_csv(job, joblist):
+#     p = get_pages()
+#     with open(f'{job}-ebay.csv', 'w') as csv_file:
+#         writer = csv.DictWriter(csv_file, fieldnames=joblist[0].keys())
+#         writer.writeheader()
 
-def to_csv(job, joblist):
-    p = get_pages()
-    with open(f'{job}-ebay.csv', 'w') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=joblist[0].keys())
-        writer.writeheader()
-
-        for row in joblist:
-            writer.writerow(row)
+#         for row in joblist:
+#             writer.writerow(row)
     
-    print('Work Done!')
+#     print('Work Done!')
 
-to_csv(job, joblist)
+# to_csv(job, joblist)
